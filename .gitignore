@@ -1,0 +1,11 @@
+# Executáveis
+*.exe
+
+# Arquivos de compilação (o "lixo" do MSVC)
+*.obj
+*.pdb
+*.ilk
+vc140.pdb
+
+# Configurações do VS Code (opcional, mas recomendado)
+.vscode/
