@@ -1,4 +1,5 @@
 #include <stdio.h>
+#include <stdbool.h>
 
 void criarTabuleiro(char tabuleiro[10][10]){
     for (int i=0; i<10; i++){
@@ -52,6 +53,21 @@ void encaixarPeca(char tabuleiro[10][10],char peca[3][3], int linha, int coluna)
         }
     }
 }
+
+bool verificarEncaixe(char tabuleiro[10][10],char peca[3][3], int linha , int coluna){
+    for (int i=0; i<3;i++){
+        for (int j=0; j<3;j++){
+            if (linha+i >=10 || coluna+j>=10 || linha+i<0 || coluna+j<0)/*pro caso do indice do vetor passar de 9 ou ser negativo.*/
+            {
+                return false;
+            }
+            else if (peca[i][j] == '1' && tabuleiro[linha+i][coluna+j] == '1'){    
+                return false;
+            } 
+        }
+    }
+    return true;
+} 
 
 void main(){
     char tabuleiro[10][10], peca[3][3];
