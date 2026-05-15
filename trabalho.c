@@ -1,24 +1,27 @@
 #include <stdio.h>
 #include <stdbool.h>
 
-void criarTabuleiro(char tabuleiro[10][10]){
-    for (int i=0; i<10; i++){
-        for (int j=0; j<10; j++){
+#define TAMTAB 10
+#define TAMPECA 3
+
+void criarTabuleiro(char tabuleiro[TAMTAB][TAMTAB]){
+    for (int i=0; i<TAMTAB; i++){
+        for (int j=0; j<TAMTAB; j++){
             tabuleiro[i][j] = ' ';
         }
     }
 }
-void mostrarTabuleiro(char tabuleiro[10][10]){
-    for (int i=0; i<10; i++){
-        for (int j=0; j<10; j++){
+void mostrarTabuleiro(char tabuleiro[TAMTAB][TAMTAB]){
+    for (int i=0; i<TAMTAB; i++){
+        for (int j=0; j<TAMTAB; j++){
             printf("%c ",tabuleiro[i][j]);
         }
         printf("\n");
     }
 }
-void escolherPeca(int tipoPeca, char peca[3][3]){
-    for (int i=0;i<3;i++){
-        for (int j=0;j<3;j++){
+void escolherPeca(int tipoPeca, char peca[TAMPECA][TAMPECA]){
+    for (int i=0;i<TAMPECA;i++){
+        for (int j=0;j<TAMPECA;j++){
             peca[i][j] = ' ';
         }
     }
@@ -32,7 +35,7 @@ void escolherPeca(int tipoPeca, char peca[3][3]){
             peca[0][0] = '1';
             peca[1][0] = '1'; peca[1][1] = '1';
             break;
-        case 3:
+        case TAMPECA:
             peca[0][0] = '1'; peca[0][1] = '1';
             break;
         case 4:
@@ -44,9 +47,10 @@ void escolherPeca(int tipoPeca, char peca[3][3]){
             break;
         }
 }
-void encaixarPeca(char tabuleiro[10][10],char peca[3][3], int linha, int coluna){
-    for (int i = 0; i<3;i++){
-        for (int j = 0; j<3;j++){
+
+void encaixarPeca(char tabuleiro[TAMTAB][TAMTAB],char peca[TAMPECA][TAMPECA], int linha, int coluna){
+    for (int i = 0; i<TAMPECA;i++){
+        for (int j = 0; j<TAMPECA;j++){
             if (peca[i][j]!= ' '){
                 tabuleiro[linha+i][coluna+j] = peca[i][j];
             }
@@ -54,10 +58,18 @@ void encaixarPeca(char tabuleiro[10][10],char peca[3][3], int linha, int coluna)
     }
 }
 
-bool verificarEncaixe(char tabuleiro[10][10],char peca[3][3], int linha , int coluna){
-    for (int i=0; i<3;i++){
-        for (int j=0; j<3;j++){
-            if (linha+i >=10 || coluna+j>=10 || linha+i<0 || coluna+j<0)/*pro caso do indice do vetor passar de 9 ou ser negativo.*/
+bool verificacaoTamanhoTabuleiro(int linha, int coluna){
+    if (linha>=9 || coluna>9 || linha<0 || coluna<0)/*pro caso do indice do vetor passar de 9 ou ser negativo.*/
+        {
+            return false;
+        }
+    return true;
+}
+
+bool verificarEncaixe(char tabuleiro[TAMTAB][TAMTAB],char peca[TAMPECA][TAMPECA], int linha , int coluna){
+    for (int i=0; i<TAMPECA;i++){
+        for (int j=0; j<TAMPECA;j++){
+            if (verificacaoTamanhoTabuleiro(linha+i,coluna+j))/*pro caso do indice do vetor passar de 9 ou ser negativo.*/
             {
                 return false;
             }
@@ -70,7 +82,7 @@ bool verificarEncaixe(char tabuleiro[10][10],char peca[3][3], int linha , int co
 } 
 
 void main(){
-    char tabuleiro[10][10], peca[3][3];
+    char tabuleiro[TAMTAB][TAMTAB], peca[TAMPECA][TAMPECA];
     
     printf("Wood Blocks Console Game -- Trabalho laboratorio de logica de programacao");
     printf("\n \n");
