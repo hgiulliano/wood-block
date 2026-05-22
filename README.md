@@ -11,7 +11,7 @@ Este repositório contém a implementação do jogo **Mini Wood Block**, desenvo
 * **Valor:** 15,0 pontos
 
 ## 🕹️ O Jogo
-O objetivo do jogo é encaixar diferentes tipos de peças em um tabuleiro de dimensões 10x10cu. O programa gerencia um estoque limitado e valida cada movimento.
+O objetivo do jogo é encaixar diferentes tipos de peças em um tabuleiro de dimensões 10x10. O programa gerencia um estoque limitado e valida cada movimento.
 
 ### Regras Principais:
 - **Tabuleiro:** Matriz 10x10.
