@@ -8,8 +8,79 @@
 void criarTabuleiro(char tabuleiro[TAMTAB][TAMTAB]){
     for (int i=0; i<TAMTAB; i++){
         for (int j=0; j<TAMTAB; j++){
-            tabuleiro[i][j] = ' ';
+            tabuleiro[i][j] = '-';
         }
+    }
+}
+
+void mostrarPecas(int n){
+    char peca[TAMPECA][TAMPECA];
+    for (int i = 0; i < TAMPECA; i++){
+        for(int j = 0; j < TAMPECA; j++){
+            peca[i][j] = ' ';
+        }
+    }
+    switch(n){
+        case 1:
+            printf("Peca 1: 6 disponiveis\n");
+            peca[0][0] = PREENCHIDA; peca[0][1] = PREENCHIDA; peca[0][2] = PREENCHIDA;
+            peca[1][0] = PREENCHIDA; peca[1][1] = PREENCHIDA; peca[1][2] = PREENCHIDA;
+            peca[2][0] = PREENCHIDA; peca[2][1] = PREENCHIDA; peca[2][2] = PREENCHIDA;
+            for(int i = 0; i < TAMPECA; i++){
+                for(int j = 0; j < TAMPECA; j++){
+                    printf("%c ", peca[i][j]);
+                }
+                printf("\n");
+            }
+            mostrarPecas(2);
+            break;
+        case 2:
+            printf("Peca 2: 5 disponiveis\n");
+            peca[0][0] = PREENCHIDA;
+            peca[1][0] = PREENCHIDA; peca[1][1] = PREENCHIDA;
+            for(int i = 0; i < TAMPECA; i++){
+                for(int j = 0; j < TAMPECA; j++){
+                    printf("%c ", peca[i][j]);
+                }
+                printf("\n");
+            }
+            mostrarPecas(3);
+            break;
+        case 3:
+            printf("Peca 3: 7 disponiveis\n");
+            peca[0][0] = PREENCHIDA; peca[0][1] = PREENCHIDA;
+            for(int i = 0; i < TAMPECA; i++){
+                for(int j = 0; j < TAMPECA; j++){
+                    printf("%c ", peca[i][j]);
+                }
+                printf("\n");
+            }
+            mostrarPecas(4);
+            break;
+        case 4:
+            printf("Peca 4: 5 disponiveis\n");
+            peca[0][0] = PREENCHIDA;
+            peca[1][0] = PREENCHIDA;
+            for(int i = 0; i < TAMPECA; i++){
+                for(int j = 0; j < TAMPECA; j++){
+                    printf("%c ", peca[i][j]);
+                }
+                printf("\n");
+            }
+            mostrarPecas(5);
+            break;
+        case 5:
+            printf("Peca 5: 7 disponiveis\n");
+            peca[0][0] = PREENCHIDA;
+            for(int i = 0; i < TAMPECA; i++){
+                for(int j = 0; j < TAMPECA; j++){
+                    printf("%c ", peca[i][j]);
+                }
+                printf("\n");
+            }
+            break;
+        default:
+            break;
     }
 }
 
@@ -97,7 +168,10 @@ void reduzirPeca(int tipoPeca,int quantidadePecas[5]){
             quantidadePecas[4]--;
             break;
     }
-
+    for(int i = 0; i < 5; i++){
+        printf("Peca %d: %d disponivel\n", i + 1, quantidadePecas[i]);
+    }
+    printf("\n");
 }
 
 bool verificacaoTamanhoTabuleiro(int linha, int coluna){
@@ -138,7 +212,12 @@ int main(){
         printf("Jogo encerrado, volte sempre!");
         return 0;
     }
+
+    printf("Pecas disponiveis:\n");
+    mostrarPecas(1);
+
     while(inicio == 1){
+        printf("Tabuleiro do jogo:\n");
         mostrarTabuleiro(tabuleiro);
         printf("\n");
         int tipoPeca, linha, coluna;
