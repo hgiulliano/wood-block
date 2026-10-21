@@ -11,7 +11,7 @@ Projeto da disciplina de **Laboratório de Lógica de Programação**, CEFET-MG.
 
 | Peça | Formato | Quantidade |
 |------|---------|-----------|
-| 1 | quadrado 3x3 | 6 |
+| 1 | Quadrado 3x3 | 6 |
 | 2 | L de 3 blocos | 5 |
 | 3 | 2 blocos na horizontal | 7 |
 | 4 | 2 blocos na vertical | 5 |
@@ -36,5 +36,5 @@ Funções, matrizes bidimensionais, recursão (`mostrarPecas`), `switch`, consta
 
 ## Autores
 
-- Henrique Giulliano
-- Guilherme Pinheiro
+- Henrique Giulliano Vilano Silva
+- Guilherme Pinheiro Oliveira Menez
