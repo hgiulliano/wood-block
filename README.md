@@ -1,39 +1,40 @@
-# Mini Wood Block - Trabalho Prático I
+# 🧱 Wood Block
 
-Este repositório contém a implementação do jogo **Mini Wood Block**, desenvolvido como parte dos requisitos da disciplina de **Laboratório de Lógica de Programação** do curso de Engenharia de Computação do **CEFET-MG** (Semestre 2026/1).
+Jogo de quebra-cabeça para terminal, escrito em C. O objetivo é encaixar todas as peças disponíveis em um tabuleiro 10x10, preenchendo todos os espaços sem sobreposição.
 
-## 🎓 Informações Acadêmicas
-* **Instituição:** Centro Federal de Educação Tecnológica de Minas Gerais (CEFET-MG)
-* **Departamento:** DECOM - Departamento de Computação
-* **Curso:** Engenharia de Computação
-* **Disciplina:** Laboratório de Lógica de Programação
-* **Data de Entrega:** 26/05/2026
-* **Valor:** 15,0 pontos
+Projeto da disciplina de **Laboratório de Lógica de Programação**, CEFET-MG.
 
-## 🕹️ O Jogo
-O objetivo do jogo é encaixar diferentes tipos de peças em um tabuleiro de dimensões 10x10. O programa gerencia um estoque limitado e valida cada movimento.
+## Como jogar
 
-### Regras Principais:
-- **Tabuleiro:** Matriz 10x10.
-- **Estoque de Peças:**
-  - Tipo 1: 6 unidades
-  - Tipo 2: 5 unidades
-  - Tipo 3: 7 unidades
-  - Tipo 4: 5 unidades
-  - Tipo 5: 7 unidades
-- **Comandos:** O usuário informa o tipo da peça, linha e coluna.
-- **Término:** O jogo acaba ao completar o tabuleiro ou quando o usuário informa `0` para desistir.
+- O tabuleiro tem 10x10 casas. As linhas e colunas vão de **0 a 9**.
+- Existem 5 tipos de peça, cada um com uma quantidade limitada:
 
-## 🛠️ Critérios de Desenvolvimento
-O projeto foca nos seguintes aspectos técnicos solicitados:
-* **Correção:** Validação rigorosa de encaixes e limites da matriz.
-* **Legibilidade:** Código estruturado com nomes significativos para variáveis e funções.
-* **Modularidade:** Divisão do código em funções para melhor organização e manutenção.
+| Peça | Formato | Quantidade |
+|------|---------|-----------|
+| 1 | quadrado 3x3 | 6 |
+| 2 | L de 3 blocos | 5 |
+| 3 | 2 blocos na horizontal | 7 |
+| 4 | 2 blocos na vertical | 5 |
+| 5 | 1 bloco | 7 |
 
-## 📂 Estrutura do Projeto
-- `trabalho.c`: Código-fonte principal em linguagem C.
-- `Documentacao.pdf`: Relatório detalhando o objetivo e exemplos de execução.
-- `.gitignore`: Configuração para manter o repositório livre de arquivos binários e temporários de compilação.
+- A cada rodada, escolha o tipo da peça (1 a 5) e a linha e a coluna onde ela será encaixada. A posição informada é o canto superior esquerdo da peça.
+- Digite `0` no tipo da peça para desistir.
+- Você vence ao preencher todo o tabuleiro.
 
----
-*Este projeto foi desenvolvido para fins estritamente acadêmicos.*
+## Como rodar
+
+Você precisa de um compilador C, como o `gcc`.
+
+```bash
+gcc main.c -o woodblock
+./woodblock
+```
+
+## Conceitos praticados
+
+Funções, matrizes bidimensionais, recursão (`mostrarPecas`), `switch`, constantes com `#define` e validação de limites do tabuleiro.
+
+## Autores
+
+- Henrique Giulliano
+- Guilherme Pinheiro
