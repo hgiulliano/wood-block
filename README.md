@@ -26,7 +26,7 @@ Projeto da disciplina de **Laboratório de Lógica de Programação**, CEFET-MG.
 Você precisa de um compilador C, como o `gcc`.
 
 ```bash
-gcc main.c -o woodblock
+gcc trabalho.c -o woodblock
 ./woodblock
 ```
 
